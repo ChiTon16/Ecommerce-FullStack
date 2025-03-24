@@ -12,22 +12,30 @@ body {
   background: #233a95;
 }
 
-.text-light {
-  color: #999898 !important;
-}
-
-.text-sml {
-  font-size: 14px;
-}
-
 @media (min-width: 1300px) {
   .container, .container-lg, .container-md, .container-sm, .container-xl {
     max-width: 1200px;
   }
 }
 
+.btn-blue { background: #233a95 !important;  color: #fff !important; text-transform: capitalize !important;}
+.btn-big { font-size: 15px !important; padding: 7px 30px !important; min-width: auto !important;}
+.btn-round {border-radius: 30px !important;}
+
+.btn-sml{font-size: 12px !important; color: #000; text-transform: capitalize !important;}
+.btn-sml svg {font-size: 20px;}
+
+button { text-transform: capitalize !important; }
+
+.badge {display: inline-block; padding: 7px 10px;}
+.badge.bg-success { background: #e5f8ed !important; color: #16b858 !important; }
+
 .cursor {
   cursor: pointer;
+}
+.text-light {color: #8b8b8b !important;}
+.text-sml {
+  font-size: 14px;
 }
 
 ::-webkit-scrollbar {
@@ -367,8 +375,8 @@ nav .navPart2 ul li a:hover {
   background: #ccc !important;
 }
 
-.locationModal .close_ {
-  position: absolute;
+.close_ {
+  position: absolute !important;
   top: 10px;
   right: 10px;
   color: #000 !important;
@@ -378,54 +386,32 @@ nav .navPart2 ul li a:hover {
   border-radius: 50% !important;
 }
 
-.locationModal .close_ svg {
+.close_ svg {
   font-size: 20px;
 }
 
 .homeBannerSection {
   position: relative;
-  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
 }
+
+.homeBannerSection .swiper-button-prev, .homeBannerSection .swiper-button-next {
+  width: 40px !important; height: 40px !important;
+  box-shadow: 0 1px 3px rgba(0 0 0 / 12%), 0 1px 2px rgba(0 0 0 / 24%) !important;
+  border-radius: 100% !important;
+}
+
+.homeBannerSection .swiper-button-prev::after, .homeBannerSection .swiper-button-next::after {
+  font-size: 20px !important;
+}
+
+.homeBannerSection .swiper { overflow: inherit !important; }
+
+.homeBannerSection .swiper .item { overflow: hidden; border-radius: 10px; }
 
 .homeBannerSection * {
   outline: none !important;
-}
-
-.homeBannerSection .slick-arrow {
-  position: absolute;
-  top: 45%;
-  z-index: 100;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 100%;
-  font-family: FontAwesome !important;
-  font-weight: bold;
-  box-shadow: 0 1px 3px rgba(0 0 0 / 12%), 0 1px 2px rgba(0 0 0 / 24%) !important;
-}
-.homeBannerSection .slick-arrow.slick-next{right: 35px !important;}
-.homeBannerSection .slick-arrow.slick-prev{left: 35px !important;}
-
-.slick-next:before, .slick-prev:before {
-  color: #000 !important;
-  font-family: "Font Awesome 6 Free" !important;
-  opacity: 0.8;
-}
-
-.homeBannerSection .slick-arrow.slick-next::before {
-  font-weight: 900;
-  content: "\f105" !important;
-}
-
-.homeBannerSection .slick-arrow.slick-prev::before {
-  content: "\f104" !important;
-}
-
-.homeBannerSection {
-  cursor: pointer;
 }
 
 .homeProducts { padding: 25px 0px; width: 100%;}
@@ -457,13 +443,21 @@ text-transform: capitalize !important;}
   font-size: 15px; font-weight: 500;
 }
 
-.productItem .info .oldPrice {
+.info .oldPrice {
   font-size: 16px; font-weight: bold; color: rgba(0, 0, 0, 0.2);
   text-decoration: line-through;
 }
 
-.productItem .info .netPrice {
+.info .oldPrice.lg {
+  font-size: 20px;
+}
+
+.info .netPrice {
   font-size: 16px; font-weight: bold;
+}
+
+.info .netPrice.lg {
+  font-size: 16px;
 }
 
 .productItem .actions {
@@ -524,13 +518,16 @@ text-transform: capitalize !important;}
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
-.swiper-button-prev{
+
+
+/* .swiper-button-prev{
   left: 0px !important;
+  content: '';
 }
 
 .swiper-button-next{
   right: 0px !important;
-}
+} */
 
 .swiper-button-prev::after, .swiper-button-next::after {
   color: black !important;
@@ -672,7 +669,53 @@ footer .topInfo .col svg { font-size: 26px; }
 
 footer .topInfo .col span { font-size: 14px; font-weight: 600;}
 
-footer .linksWrap h5 { font-size: 17px; margin-bottom: 20px; font-weight: 600;}
+footer .linksWrap h5 { font-size: 15px; margin-bottom: 20px; font-weight: 600;}
 footer .linksWrap ul li { list-style: none; margin-bottom: 10px; }
-footer .linksWrap ul li a { color: #000; font-size: 14px; }
+footer .linksWrap ul li a { color: #71778e; font-size: 13px; }
 footer .linksWrap ul li a:hover { text-decoration: none; }
+
+footer .copyright ul li a { display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%;
+ border: 1px solid rgba(0, 0, 0, 0.2);}
+footer .copyright ul li a svg { font-size: 16px; color: rgba(0 , 0, 0, 0.8);}
+footer .copyright ul li a:hover { background: #6f42c1 !important;}
+footer .copyright ul li a:hover svg { color: #fff !important;}
+
+
+
+/* productModal */
+
+.productModal .MuiPaper-elevation {
+  padding: 25px;
+  position: relative; max-width: 900px !important; width: 900px !important;
+}
+
+.productZoom .badge{ position: absolute; top: 20px; left: 20px; z-index: 100; }
+
+.MuiDialog-container .MuiPaper-root {
+  max-height: calc(100% - 25px);
+}
+
+.productModal h4 { font-size: 20px !important; color: rgba(0, 0, 0, 0.8) !important;}
+
+.productZoom { width: 100%; height: auto; border: 1px solid rgba(0, 0, 0, 0.1); padding: 0px; overflow: hidden;
+border-radius: 15px; }
+.zoomSliderBig {width: 100% !important;}
+
+.zoomSlider {padding-top: 30px;}
+.zoomSlider .slick-slide { padding-right: 20px !important;}
+.zoomSlider *{outline: none !important;}
+.zoomSlider .item{border: 2px solid transparent !important; overflow: hidden; border-radius: 15px; cursor: pointer;}
+.zoomSlider .slick-current .item{border: 2px solid #3bb77e !important; }
+.zoomSlider .slick-arrow{top: 55% !important; zoom: 80% !important;}
+.zoomSlider .slick-arrow.slick-next{right: -2% !important;}
+.zoomSlider .slick-arrow.slick-prev{left: -5% !important;}
+
+.quantityDrop { width: 150px; gap: 10px; }
+.quantityDrop button {min-width: 40px !important; width: 40px !important; height: 40px !important; border-radius: 50% !important;
+background: #edeef5 !important; border: 1px solid rgba(0, 0, 0, 0.1) !important; color: #000;}
+.quantityDrop button svg {color: #000 !important;}
+.quantityDrop input { width: 30px; border: 0px; background: transparent; outline: none !important; text-align: center;}
+
+.productModal .actions button {color: #000 !important; border: 1px solid rgba(0, 0, 0, 0.1) !important; 
+font-size: 10px !important;}
+.productModal .actions button svg { font-size: 15px !important; }

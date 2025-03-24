@@ -3,6 +3,12 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { RiDiscountPercentLine } from "react-icons/ri";
 import { CiBadgeDollar } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { FaFacebookF } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+
+
+
 
 const Footer = () => {
     return (
@@ -27,8 +33,8 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="row mt-4">
-                    <div className="col linksWrap">
+                <div className="row mt-5 linksWrap">
+                    <div className="col">
                         <h5>FRUIT & VEGETABLES</h5>
                         <ul>
                             <li><Link to="#">Fresh Vegetables</Link></li>
@@ -40,7 +46,7 @@ const Footer = () => {
                             <li><Link to="#">Party Trays</Link></li>
                         </ul>
                     </div>
-                    <div className="col linksWrap">
+                    <div className="col">
                         <h5>BREAKFAST & DAIRY</h5>
                         <ul>
                             <li><Link to="#">Fresh Vegetables</Link></li>
@@ -52,7 +58,7 @@ const Footer = () => {
                             <li><Link to="#">Party Trays</Link></li>
                         </ul>
                     </div>
-                    <div className="col linksWrap">
+                    <div className="col">
                         <h5>MEAT & SEAFOOD</h5>
                         <ul>
                             <li><Link to="#">Fresh Vegetables</Link></li>
@@ -64,7 +70,7 @@ const Footer = () => {
                             <li><Link to="#">Party Trays</Link></li>
                         </ul>
                     </div>
-                    <div className="col linksWrap">
+                    <div className="col">
                         <h5>BEVERAGES</h5>
                         <ul>
                             <li><Link to="#">Fresh Vegetables</Link></li>
@@ -76,7 +82,7 @@ const Footer = () => {
                             <li><Link to="#">Party Trays</Link></li>
                         </ul>
                     </div>
-                    <div className="col linksWrap">
+                    <div className="col">
                         <h5>BREADS & BAKERY</h5>
                         <ul>
                             <li><Link to="#">Fresh Vegetables</Link></li>
@@ -88,6 +94,23 @@ const Footer = () => {
                             <li><Link to="#">Party Trays</Link></li>
                         </ul>
                     </div>
+                </div>
+
+                <div className="copyright mt-3 pt-3 pb-3 d-flex">
+                    <p className="mb-0">Copyright 2024. All rights reserved</p>
+                    <ul className="list list-inline ml-auto mb-0 socials">
+                        <li className="list-inline-item">
+                            <Link to="#"><FaFacebookF/></Link>
+                        </li>
+
+                        <li className="list-inline-item">
+                            <Link to="#"><FaTwitter/></Link>
+                        </li>
+
+                        <li className="list-inline-item">
+                            <Link to="#"><FaInstagram /></Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </footer>
