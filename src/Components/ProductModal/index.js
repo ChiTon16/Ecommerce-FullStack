@@ -1,5 +1,5 @@
 import { Button, Dialog, Rating } from "@mui/material";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { MdClose } from "react-icons/md";
 import InnerImageZoom from "react-inner-image-zoom";
 import Slider from "react-slick";
@@ -10,42 +10,48 @@ import QuantityBox from "../QuantityBox";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { MdOutlineCompareArrows } from "react-icons/md";
 import { MyContext } from "../../App";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 
 const ProductModal = (props) => {
-  const zoomSlideBig = useRef();
+  const zoomSliderBig = useRef();
   const zoomSlider = useRef();
+  const [slideIndex, setSlideIndex] = useState(0);
 
   const context = useContext(MyContext);
 
-  var settings2 = {
-    dots: false,
-    infinite: false,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    fade: false,
-    arrows: false,
-  };
+  // var settings2 = {
+  //   dots: false,
+  //   infinite: false,
+  //   speed: 700,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   fade: false,
+  //   arrows: false,
+  // };
 
-  var settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    fade: false,
-    arrows: true,
-  };
+  // var settings = {
+  //   dots: false,
+  //   infinite: false,
+  //   speed: 500,
+  //   slidesToShow: 5,
+  //   slidesToScroll: 1,
+  //   fade: false,
+  //   arrows: true,
+  // };
 
   const goto = (index) => {
-    zoomSlider.current.slickGoTo(index);
-    zoomSlideBig.current.slickGoTo(index);
+    setSlideIndex(index);
+    zoomSlider.current.swiper.slideTo(index);
+    zoomSliderBig.current.swiper.slideTo(index);
   }
 
   return (
     <>
-      <Dialog open={true} className="productModal" onClose={() => context.setIsOpenProductModal(false)}>
+      <Dialog open={context.isOpenProductModal} className="productModal" onClose={() => context.setIsOpenProductModal(false)}>
         <Button className="close_" onClick={() => context.setIsOpenProductModal(false)}>
           <MdClose />
         </Button>
@@ -75,11 +81,16 @@ const ProductModal = (props) => {
           <div className="col-md-5">
             <div className="productZoom position-relative">
               <div className="badge badge-primary">23%</div>
-              <Slider
-                {...settings2}
-                className="zoomSliderBig"
-                ref={zoomSlideBig}
+              <Swiper
+              slidesPerView={1}
+              spaceBetween={0}
+              navigation={false}
+              slidesPerGroup={1}
+              modules={[Navigation]}
+              className="zoomSliderBig"
+              ref={zoomSliderBig}
               >
+                <SwiperSlide>
                 <div className="item">
                   <InnerImageZoom
                     zoomType="hover"
@@ -87,7 +98,9 @@ const ProductModal = (props) => {
                     src="https://api.spicezgold.com/download/file_1734527098974_poco-c61-4gb-ram-64gb-rom-ethereal-blue-smartphone-product-images-orvmh0bwivm-p608625324-0-202403291512.webp"
                   />
                 </div>
+                </SwiperSlide>
 
+                <SwiperSlide>
                 <div className="item">
                   <InnerImageZoom
                     zoomType="hover"
@@ -95,23 +108,38 @@ const ProductModal = (props) => {
                     src="https://api.spicezgold.com/download/file_1734527098974_poco-c61-4gb-ram-64gb-rom-ethereal-blue-smartphone-product-images-orvmh0bwivm-p608625324-1-202403291512.jpg"
                   />
                 </div>
-              </Slider>
-            </div>
+                </SwiperSlide>
 
-            <Slider {...settings} className="zoomSlider" ref={zoomSlider}>
-              <div className="item">
-                <img
+              </Swiper>
+          </div>
+              <Swiper
+                  slidesPerView={4}
+                  spaceBetween={0}
+                  navigation={true}
+                  slidesPerGroup={1}
+                  modules={[Navigation]}
+                  className="zoomSlider"
+                  ref={zoomSlider}
+                  >
+                    <SwiperSlide>
+                      <div className={`item ${slideIndex===0 && 'item_active'}`}>
+                      <img
                   src=
                   "https://api.spicezgold.com/download/file_1734527098974_poco-c61-4gb-ram-64gb-rom-ethereal-blue-smartphone-product-images-orvmh0bwivm-p608625324-0-202403291512.webp"
                   className="w-100" onClick={() => goto(0)}/>
-              </div>
-              <div className="item">
-                <img
-                  src=
-                  "https://api.spicezgold.com/download/file_1734527098974_poco-c61-4gb-ram-64gb-rom-ethereal-blue-smartphone-product-images-orvmh0bwivm-p608625324-1-202403291512.jpg"
-                  className="w-100" onClick={() => goto(1)}/>
-              </div>
-            </Slider>
+                      </div>
+                    </SwiperSlide>
+
+                    <SwiperSlide>
+                      <div className={`item ${slideIndex===1 && 'item_active'}`}>
+                      <img
+                    src=
+                    "https://api.spicezgold.com/download/file_1734527098974_poco-c61-4gb-ram-64gb-rom-ethereal-blue-smartphone-product-images-orvmh0bwivm-p608625324-1-202403291512.jpg"
+                    className="w-100" onClick={() => goto(1)}/>
+                      </div>
+                    </SwiperSlide>
+
+                </Swiper>
           </div>
 
           <div className="col-md-7">

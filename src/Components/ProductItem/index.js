@@ -6,7 +6,7 @@ import ProductModal from "../ProductModal";
 import { useContext, useState } from "react";
 import { MyContext } from "../../App";
 
-const ProductItem = () => {
+const ProductItem = (props) => {
 
   const context = useContext(MyContext);
 
@@ -16,7 +16,7 @@ const ProductItem = () => {
 
   return (
     <>
-      <div className="item productItem">
+      <div className={`productItem ${props.itemView}`}>
         <div className="imgWrapper">
           <img
             src="https://down-vn.img.susercontent.com/file/cn-11134301-7r98o-lozit7rufoifde_tn.webp"
